@@ -11,4 +11,3 @@ To get started with app you have to:
  - open terminal and install dependencies using `npm install`
  - then run the server using `npm run nodemon`
  - open the app in browser using `http://localhost:3000`
-Have fun!
