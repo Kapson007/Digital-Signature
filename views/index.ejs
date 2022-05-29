@@ -4,15 +4,92 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    
+    <title>Signature App | Form</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+        body{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+            background: linear-gradient(#141e30, #243b55);
+            font-family: 'Poppins';
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .form{
+            display: flex;
+            justify-content: center;
+            min-height: 60vh;
+            min-width: 20vw;
+            padding: 1rem;
+            border: 2px solid rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.5);
+            box-sizing: border-box;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            color: aliceblue;
+        }
+
+        .form__userBox{
+            min-height: 80%;
+            min-width: 30vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            /* justify-content: space-between; */
+            padding: 1.5rem;
+            
+        }
+        .box__label{
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+        }
+        .box__submit{
+            /* padding: 1rem 2rem; */
+            min-width: 50%;
+            min-height: 12%;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: .15rem;
+            background-color: #33557b;
+            color: #e6e6ed;
+            border: 3px solid #243b55;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .box_areaInput{
+            font-family: 'Poppins', sans-serif;
+            /* padding: .4rem; */
+            text-align: left;
+            font-size: 1rem;
+            min-width: 50%;
+            padding: 1rem;
+            margin: 1rem;
+            background-color: #e6e6ed;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
     <form class="form" action="/signMessage" method="post">
-        <label class="form_label" for="message">
-            Nadaj wiadomość
-            <input type="text" name="message" id="message" value="">
-        </label>
-        <input class="form_submit" type="submit">
+        <div class="form__userBox box">
+            <label class="box__label" for="message">
+                Twoja wiadomość
+            </label>
+            <textarea placeholder="Nadaj wiadomość..." class="box_areaInput" name="message" id="" cols="30" rows="10" ></textarea>
+            
+            <input class="box__submit" type="submit">
+        </div>
+        
+        
     </form>
     
 </body>
