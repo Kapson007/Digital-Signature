@@ -25,8 +25,9 @@ app.post('/signMessage', (req, res)=>{
         const signature = getSignature(message)
         const verification = verifySignature(signature)
         console.log(verification);
-        res.render('checkSignature', {check: verification})
-        
+        setTimeout(()=>{
+            res.render('checkSignature', {check: !verification})
+        }, 1000)
     } catch (error) {
         console.error(error.message)
         res.status(400).send("Your message is incorrect. Please fix your message")

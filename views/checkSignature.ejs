@@ -18,25 +18,33 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            font-size: 3rem;
+            font-size: 2.5rem;
         }
         .success{
            
-            color: #5fa712;
+            color: #74cd15;
         }
 
         .error{
-            color: #D8000C;
+            color: #dc0f1a;
         }
     </style>
-    <title>Signature App | Verified </title>
+    <title>
+        Signature App |
+        <% if(locals.check) { %> 
+        Verified
+        <% }else { %>
+            Declined
+        <%} %>
+    
+    </title>
 </head>
 <body>
     <div class="container">
         <% if(locals.check){  %>
-            <h1 class="success">Your signature is correct</h1>
+            <h1 class="success">Your signature is correct &#128077</h1>
             <%}else{ %>
-                <h1 class="error">Your signature is incorrect</h1>
+                <h1 class="error">Your signature is incorrect &#128078</h1>
         <% }%> 
     </div>
     
