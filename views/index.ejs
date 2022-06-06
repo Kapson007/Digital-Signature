@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Signature App | Form</title>
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
         body{
@@ -65,6 +65,10 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
+        input[type="text"]:disabled {
+  background: #dddddd;
+}
         .box_areaInput{
             font-family: 'Poppins', sans-serif;
             /* padding: .4rem; */
@@ -79,14 +83,13 @@
     </style>
 </head>
 <body>
-    <form class="form" action="/signMessage" method="post">
+    <form class="form" action="/generateKey" method="post">
         <div class="form__userBox box">
             <label class="box__label" for="message">
-                Your Message
+                Nadaj wiadomość
             </label>
-            <textarea placeholder="Type message..." class="box_areaInput" name="message" id="" cols="30" rows="10" ></textarea>
-            
-            <input class="box__submit" type="submit" value="Send">
+            <textarea placeholder="Wpisz wiadomość..." class="box_areaInput" name="message" id="" cols="30" rows="10" ></textarea>
+            <input  class="box__submit" type="submit" value="Wygeneruj klucz">
         </div>
     </form>
     
