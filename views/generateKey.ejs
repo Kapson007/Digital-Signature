@@ -52,6 +52,74 @@
             cursor: pointer;
             margin-top: 2rem;
         }
+        #capture{
+            cursor: pointer;
+        }
+        /* Customize the label (the box__label) */
+.box__label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.box__label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.box__label:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.box__label input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.box__label input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.box__label .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
         
     </style>
 </head>
@@ -60,10 +128,11 @@
         <h2>Wygenerowano klucz dla twojej wiadomości</h2>
         <h3>Twój klucz to: </h3>
         <%=locals.key %>
-        <label class="box__label" for="capture">
+        <label class="box__label">
             Przechwyć
-            <input id="capture" name="capture" type="radio">
-        </label>
+            <input name="capture" type="checkbox">
+            <span class="checkmark"></span>
+          </label>
         
         <input class="box__submit" type="submit" value="Podpisz i wyślij">
     </form>
