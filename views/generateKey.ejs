@@ -59,7 +59,12 @@
     <form class="form" action="/verifySignature" method="post">
         <h2>Wygenerowano klucz dla twojej wiadomości</h2>
         <h3>Twój klucz to: </h3>
-        <%=locals.key %> 
+        <%=locals.key %>
+        <label class="box__label" for="capture">
+            Przechwyć
+            <input id="capture" name="capture" type="radio">
+        </label>
+        
         <input class="box__submit" type="submit" value="Podpisz i wyślij">
     </form>
 </body>

@@ -40,11 +40,17 @@ app.post('/generateKey', (req, res)=>{
 
 app.post('/verifySignature', (req, res)=>{
     // const message = req.body.message
+    
     try {
         if(message == "" || message == null){
             throw Error("Wrong message")
         }
+        
         const signature = getSignature(message)
+        if(req.body.capture != undefined){
+            console.log("Typ: ",req.body.capture);
+            signature.message += "lorem"
+        }
         const verification = verifySignature(signature)
         console.log(verification);
         setTimeout(()=>{
