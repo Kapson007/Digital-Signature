@@ -9,6 +9,7 @@ const getSignature = (message = "")=>{
     const key = new NODERSA({b: 512})
     const private = key.exportKey('private')
     const public = key.exportKey('public')
+    // console.log(public.);
     const encrypt = key.encryptPrivate(hash, 'base64')
     console.log("Encrypt: ",encrypt);
     const userSignature = {
@@ -18,7 +19,6 @@ const getSignature = (message = "")=>{
         PUBLIC_KEY: public,
         PRIVATE_KEY: private
     }
-    // checkSignature(userSignature)
     return userSignature
 }
 

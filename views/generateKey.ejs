@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Signature App | Form</title>
+    <title>Generowanie kluczy</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
         body{
@@ -24,9 +23,11 @@
         }
         .form{
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
             min-height: 60vh;
-            min-width: 20vw;
+            max-width: 50vw;
             padding: 1rem;
             border: 2px solid rgba(0, 0, 0, 0.7);
             background: rgba(0, 0, 0, 0.5);
@@ -35,24 +36,9 @@
             border-radius: 10px;
             color: aliceblue;
         }
-
-        .form__userBox{
-            min-height: 80%;
-            min-width: 30vw;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            /* justify-content: space-between; */
-            padding: 1.5rem;
-            
-        }
-        .box__label{
-            font-size: 1.5rem;
-            letter-spacing: 2px;
-        }
+        
         .box__submit{
-            /* padding: 1rem 2rem; */
+            
             min-width: 50%;
             min-height: 12%;
             font-size: 1.2rem;
@@ -64,31 +50,17 @@
             border: 3px solid #243b55;
             border-radius: 5px;
             cursor: pointer;
+            margin-top: 2rem;
         }
-        .box_areaInput{
-            font-family: 'Poppins', sans-serif;
-            /* padding: .4rem; */
-            text-align: left;
-            font-size: 1rem;
-            min-width: 50%;
-            padding: 1rem;
-            margin: 1rem;
-            background-color: #e6e6ed;
-            border-radius: 10px;
-        }
+        
     </style>
 </head>
 <body>
-    <form class="form" action="/generateKey" method="post">
-        <div class="form__userBox box">
-            <label class="box__label" for="message">
-                Nadaj wiadomość
-            </label>
-            <textarea placeholder="Type message..." class="box_areaInput" name="message" id="" cols="30" rows="10" ></textarea>
-            
-            <input class="box__submit" type="submit" value="Wygeneruj klucz">
-        </div>
+    <form class="form" action="/verifySignature" method="post">
+        <h2>Wygenerowano klucz dla twojej wiadomości</h2>
+        <h3>Twój klucz to: </h3>
+        <%=locals.key %> 
+        <input class="box__submit" type="submit" value="Podpisz i wyślij">
     </form>
-    
 </body>
 </html>

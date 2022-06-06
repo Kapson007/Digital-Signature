@@ -15,9 +15,31 @@ app.get('/', (req, res)=>{
     res.render('index')
 })
 
-app.post('/signMessage', (req, res)=>{
+let message = ""
+
+app.post('/generateKey', (req, res)=>{
     
-    const message = req.body.message
+    message = req.body.message
+    // res.render('generateKey', {key: message})
+
+    try {
+        if(message == "" || message == null){
+            throw Error("Wrong message")
+        }
+        const signature = getSignature(message)
+        // const verification = verifySignature(signature)
+        // console.log(verification);
+        setTimeout(()=>{
+            res.render('generateKey', {key: signature.PUBLIC_KEY})
+        }, 1000)
+    } catch (error) {
+        console.error(error.message)
+        res.status(400).send("Twoja wiadomość jest niepoprawna. Popraw ją.")
+    }
+});
+
+app.post('/verifySignature', (req, res)=>{
+    // const message = req.body.message
     try {
         if(message == "" || message == null){
             throw Error("Wrong message")
@@ -26,11 +48,11 @@ app.post('/signMessage', (req, res)=>{
         const verification = verifySignature(signature)
         console.log(verification);
         setTimeout(()=>{
-            res.render('checkSignature', {check: !verification})
+            res.render('checkSignature', {check: verification})
         }, 1000)
     } catch (error) {
         console.error(error.message)
-        res.status(400).send("Your message is incorrect. Please fix your message")
+        res.status(400).send("Twoja wiadomość jest niepoprawna. Popraw ją.")
     }
 });
 
